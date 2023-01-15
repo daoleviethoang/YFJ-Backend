@@ -4,7 +4,7 @@ group, views related to the index endpoint of HTTP REST API.
 
 
 from flask import Blueprint
-
+from ..services.job_service import JobService
 
 bp = Blueprint('index', __name__, url_prefix='')
 
@@ -18,5 +18,8 @@ def index() -> str:
     Returns:
         str: a text message
     """
+    #Add data from stats service to database
+    job_service = JobService()
+    results = job_service.create()
+    return results
 
-    return "The server is runing! Hello world"
