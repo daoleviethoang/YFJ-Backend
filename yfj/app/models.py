@@ -1,6 +1,7 @@
 from sqlalchemy import Column, Integer, String, Enum, DateTime, ForeignKey, Float, CheckConstraint
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship, backref
+from dataclasses import dataclass
 from uuid import uuid4
 from app.database import db
 import enum
@@ -87,7 +88,8 @@ class User(db.Model):
             'geography': self.geography,
             'phylosophy': self.phylosophy,
             'art': self.art,
-            'foreign_language': self.foreign_language
+            'foreign_language': self.foreign_language,
+            'jobs': [{"name": job.name, "average_earning": job.average_earning} for job in self.jobs]
         }
 
 class Job(db.Model):

@@ -6,6 +6,11 @@ class UserService:
     key = b'pT8ZDjwCvnWkfPEYBm12q2p9srNkM-nWC6Ss9aAcMEw='
     fernet = Fernet(key)
 
+    def get_all_by_role(self, role):
+        users = User.query.all()
+        users = [user for user in users if user.role==role]
+        return users
+
     def check_username_exists(self, username):
         users = User.query.all()
         for user in users:
