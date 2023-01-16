@@ -1,7 +1,5 @@
 from ..models import Job
 import requests
-import json
-
 
 class JobService:
     def create(self) -> str:

@@ -11,9 +11,21 @@ class UserCategoryEnum(enum.Enum):
 
 class User(db.Model):
     __tablename__ = "user"
+    __table_args__ = (
+        CheckConstraint("math>=0 AND math<=10"),
+        CheckConstraint("physics>=0 AND physics<=10"),
+        CheckConstraint("chemistry>=0 AND chemistry<=10"),
+        CheckConstraint("biology>=0 AND biology<=10"),
+        CheckConstraint("literature>=0 AND literature<=10"),
+        CheckConstraint("history>=0 AND history<=10"),
+        CheckConstraint("geography>=0 AND geography<=10"),
+        CheckConstraint("phylosophy>=0 AND phylosophy<=10"),
+        CheckConstraint("art>=0 AND art<=10"),
+        CheckConstraint("foreign_language>=0 AND foreign_language<=10"),
+    )
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid4)
     username = Column(String(128), unique = True, nullable=False)
-    role = Column(Enum(UserCategoryEnum, create_constraint=True, name="user_category_enum"), nullable=False)
+    role = Column(Enum(UserCategoryEnum, create_constraint=True, name="user_category_enum_ct"), nullable=False)
     math = Column(Float, nullable=False)
     physics = Column(Float, nullable=False)
     chemistry = Column(Float, nullable=False)
@@ -25,6 +37,39 @@ class User(db.Model):
     art = Column(Float, nullable=False)
     foreign_language = Column(Float, nullable=False)
     jobs = relationship("Job", secondary="user_job")
+    
+    def __init__(self, username, role, math, physics, chemistry, biology, literature, history, geography, phylosophy, art, foreign_language):
+        self.username = username
+        self.role = role
+        self.math = math
+        self.physics = physics
+        self.chemistry = chemistry
+        self.biology = biology
+        self.literature = literature
+        self.history = history
+        self.geography = geography
+        self.phylosophy = phylosophy
+        self.art = art
+        self.foreign_language = foreign_language
+    def create(self):
+        db.session.add(self)
+        db.session.commit()
+        return self
+    def to_json(self):
+        return {
+            'id': self.id,
+            'role': self.role.name,
+            'math': self.math,
+            'physics': self.physics,
+            'chemistry': self.chemistry,
+            'biology': self.biology,
+            'literature': self.literature,
+            'history': self.history,
+            'geography': self.geography,
+            'phylosophy': self.phylosophy,
+            'art': self.art,
+            'foreign_language': self.foreign_language
+        }
 
 class Job(db.Model):
     __tablename__ = "job"
