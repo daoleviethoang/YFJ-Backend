@@ -1,5 +1,7 @@
 from flask import Blueprint, jsonify, make_response, request, abort
-from ..services.user_service import UserService
+from ..service.student_service import StudentService
+from ..service.user_service import UserService
+from ..models import UserCategoryEnum
 
 student_controller = Blueprint('student_controller', __name__, url_prefix='')
 
@@ -18,8 +20,8 @@ def update(username):
     if not request.json:
         abort(400)
     try:
-        user_service = UserService()
-        results = user_service.update(request.json, username)
+        student_service = StudentService()
+        results = student_service.update(request.json, username)
     except Exception as err:
         print(err.args)
         abort(400)
@@ -27,12 +29,13 @@ def update(username):
 
 @student_controller.route('/advices', methods=['POST'])
 def create_user():
-    if not request.json:
+    if not request.json or request.json.get("role") != UserCategoryEnum.Student.name:
         abort(400)
     try:
-        user_service = UserService()
-        user_json = user_service.add(request.json)
+        student_service = StudentService()
+        user_json = student_service.add(request.json)
     except Exception as err:
         return make_response(jsonify(err.args), 500)    
     return make_response(jsonify(user_json), 200)
+
 
