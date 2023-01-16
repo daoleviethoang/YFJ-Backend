@@ -37,14 +37,14 @@ class UserService:
         if self.check_username_exists(user.username):
             raise Exception('User exists')
         user.username = self.fernet.encrypt(bytes(user.username, 'utf-8')).decode()
-        user.create()
-        return user.to_json()
+        return user
     
     def update(self, data, username):
         user = self.check_username_exists(username)
         if not user:
             raise Exception('User does not exists')
         else:
+            user.role = data.get('role')
             user.math = data.get('math'), 
             user.physics = data.get('physics'),
             user.chemistry = data.get('chemistry'),
@@ -55,5 +55,12 @@ class UserService:
             user.phylosophy = data.get('phylosophy'),
             user.art = data.get('art'),
             user.foreign_language = data.get('foreign_language')
-            user.update()
-            return user.to_json()
+            return user
+
+    def delete(self, username):
+        user = self.check_username_exists(username)
+        if not user:
+            raise Exception('User does not exists')
+        else:
+            user.delete()
+            return "Delete user success."

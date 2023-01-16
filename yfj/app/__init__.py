@@ -87,3 +87,6 @@ def init_blueprints(app: Flask) -> None:
 
     from .controller import volunteer_controller
     app.register_blueprint(volunteer_controller.volunteer_controller)
+
+    from.controller import user_controller
+    app.register_blueprint(user_controller.user_controller)

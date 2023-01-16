@@ -38,6 +38,19 @@ class User(db.Model):
     foreign_language = Column(Float, nullable=False)
     jobs = relationship("Job", secondary="user_job")
     
+    def __init__(self):
+        self.username = ""
+        self.role = "Student"
+        self.math = 0
+        self.physics = 0
+        self.chemistry = 0
+        self.biology = 0
+        self.literature = 0
+        self.history = 0
+        self.geography = 0
+        self.phylosophy = 0
+        self.art = 0
+        self.foreign_language = 0        
     def __init__(self, username, role, math, physics, chemistry, biology, literature, history, geography, phylosophy, art, foreign_language):
         self.username = username
         self.role = role
@@ -58,6 +71,9 @@ class User(db.Model):
     def update(self):
         db.session.commit()
         return self
+    def delete(self):
+        db.session.delete(self)
+        db.session.commit()
     def to_json(self):
         return {
             'id': self.id,
@@ -88,6 +104,12 @@ class Job(db.Model):
         db.session.add(self)
         db.session.commit()
         return self
+    def to_json(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "average_earning": self.average_earning
+        }
 
 class UserJob(db.Model):
     __tablename__ = "user_job"
