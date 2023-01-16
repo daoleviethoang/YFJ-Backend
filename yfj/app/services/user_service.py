@@ -39,3 +39,21 @@ class UserService:
         user.username = self.fernet.encrypt(bytes(user.username, 'utf-8')).decode()
         user.create()
         return user.to_json()
+    
+    def update(self, data, username):
+        user = self.check_username_exists(username)
+        if not user:
+            raise Exception('User does not exists')
+        else:
+            user.math = data.get('math'), 
+            user.physics = data.get('physics'),
+            user.chemistry = data.get('chemistry'),
+            user.biology = data.get('biology'),
+            user.literature = data.get('literature'),
+            user.history = data.get('history'),
+            user.geography = data.get('geography'),
+            user.phylosophy = data.get('phylosophy'),
+            user.art = data.get('art'),
+            user.foreign_language = data.get('foreign_language')
+            user.update()
+            return user.to_json()

@@ -13,12 +13,24 @@ def get_advices(username):
         abort(404)
     return make_response(jsonify(results), 200)
 
-@student_controller.route('/user', methods=['POST'])
-def create_user():
-    user_service = UserService()
+@student_controller.route('/<username>/advices', methods=['PATCH'])
+def update(username):
     if not request.json:
         abort(400)
     try:
+        user_service = UserService()
+        results = user_service.update(request.json, username)
+    except Exception as err:
+        print(err.args)
+        abort(400)
+    return make_response(jsonify(results), 200)
+
+@student_controller.route('/advices', methods=['POST'])
+def create_user():
+    if not request.json:
+        abort(400)
+    try:
+        user_service = UserService()
         user_json = user_service.add(request.json)
     except Exception as err:
         return make_response(jsonify(err.args), 500)    
