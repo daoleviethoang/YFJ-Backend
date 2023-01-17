@@ -1,4 +1,3 @@
-import base64
 from ..models import User
 from cryptography.fernet import Fernet
 import numpy as np
