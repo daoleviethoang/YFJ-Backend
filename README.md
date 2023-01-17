@@ -153,7 +153,7 @@ Body: jobs name get from API: GET localhost:9000/
 jobs with username:
 - GET localhost:9000/{username}/user
     
-###Solution in computing the recommended jobs
+### Solution in computing the recommended jobs
 
 <img width="557" alt="image" src="https://user-images.githubusercontent.com/47211985/212830998-85bb0cc8-bb1d-468c-8803-21cd113d1940.png">
 <img width="686" alt="image" src="https://user-images.githubusercontent.com/47211985/212830921-243a0b3f-ed21-4039-92a5-04de897d73b5.png">
