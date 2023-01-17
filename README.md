@@ -39,32 +39,21 @@ The format of data to be input is like {jobs: [job1, job2, ...]}, e.g: a list of
 - PostgresSQL client tools (such as https://www.pgadmin.org/) for manipulating database, our db service use PostgresSQL.
 
 ### How to run
-1. Run all services with docker:
-``docker-compose up -d``
-
-2. Or run only db and stats services with docker and run flask for local development
-``docker-compose up -d db stats``
-``export FLASK_APP=app && flask run --port 9000``
+Follow the steps below:
+    1. Run all services with docker: docker-compose up -d
+    2. cd yfj -> flask db migrate -> flask db upgrade 
+    3. [If YFJ fail with docker] Run FYJ service: export FLASK_APP=app && flask run --port 9000
+        - If error run: pip install requests or pip3 install requests before run export FLASK_APP=app && flask run --port 9000
+    4. Click to this link when run success: http://127.0.0.1:9000/
+       (This API helps to load all the master data needed in the project)
 
 To see output of Stats Service, browse to: `localhost:8000/job_earnings`
 
 To see YFJ site, browse to:  `localhost:9000`
 
-The above instructions are given for Linux user, please adapt to your system if you use another OS
-
-### What we expect from you
-- You do not have to make any modification to service stats or code in `stats` folder
-
-- You work with the code in folder `yfj` to complete your assignment. 
-    - While working with YFJ site you are allowed to add any libraries, made any modification to setup files, add new files, ...
-    - Please update requirements.txt when adding new libraries
-    - Please update migration when adding new models
-    - Please make GIT commits as small as possible so we can review your development process step by step.
-
-- You have 2 weeks to complete this assignment and submit your result to openpositions@cubicasa.com with following checklist:
-    - GIT repo for your source code
-    - Documentation files for your YFI RESTfull web service (Optional)
-    - Screen shots to demo how your application running (Optional)
+### APIs
+You can import the postman_collection file into postman so you can test all the APIs. 
+Attachments in folder yfj
 
 
 
