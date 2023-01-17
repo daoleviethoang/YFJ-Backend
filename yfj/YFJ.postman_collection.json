@@ -1,0 +1,246 @@
+{
+	"info": {
+		"_postman_id": "699626b7-6d3c-47f8-a03f-0708244da687",
+		"name": "YFJ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15811178"
+	},
+	"item": [
+		{
+			"name": "GET /job_earnings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/job_earnings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"job_earnings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:9000/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /advices",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:9000/hoangdlv18/advices",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"hoangdlv18",
+						"advices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST create advices",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"hoangdlv18\",\n    \"role\": \"Student\",\n    \"math\": 10,\n    \"physics\": 10,\n    \"chemistry\": 10,\n    \"biology\": 8,\n    \"literature\": 9,\n    \"history\": 9,\n    \"geography\": 8,\n    \"phylosophy\": 7,\n    \"art\": 8,\n    \"foreign_language\": 9\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9000/advices",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"advices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH update advices",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"role\": \"Volunteer\",\n    \"math\": 10,\n    \"physics\": 10,\n    \"chemistry\": 8,\n    \"biology\": 8,\n    \"literature\": 8,\n    \"history\": 9,\n    \"geography\": 8,\n    \"phylosophy\": 9,\n    \"art\": 9,\n    \"foreign_language\": 8\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9000/hoangdlv2/advices",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"hoangdlv2",
+						"advices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST create jobs",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"hoangdlv11\",\n    \"role\": \"Volunteer\",\n    \"math\": 10,\n    \"physics\": 10,\n    \"chemistry\": 10,\n    \"biology\": 8,\n    \"literature\": 9,\n    \"history\": 9,\n    \"geography\": 8,\n    \"phylosophy\": 7,\n    \"art\": 8,\n    \"foreign_language\": 9,\n    \"jobs\": [\n        \"Software engineer\",\n        \"Games developer\",\n        \"Lecturer, higher education\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9000/jobs",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"jobs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH update jobs",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"role\": \"Volunteer\",\n    \"math\": 9,\n    \"physics\": 10,\n    \"chemistry\": 8,\n    \"biology\": 8,\n    \"literature\": 8,\n    \"history\": 9,\n    \"geography\": 8,\n    \"phylosophy\": 9,\n    \"art\": 9,\n    \"foreign_language\": 8,\n    \"jobs\": [\n        \"Surveyor, minerals\",\n        \"Insurance broker\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:9000/hoangdlv7/jobs",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"hoangdlv7",
+						"jobs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET user information",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:9000/hoangdlv7/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"hoangdlv7",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:9000/hoangdlv7/user",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "9000",
+					"path": [
+						"hoangdlv7",
+						"user"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
