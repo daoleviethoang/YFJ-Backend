@@ -3,6 +3,7 @@ from cryptography.fernet import Fernet
 import numpy as np
 from numpy.linalg import norm
 from ..models import UserCategoryEnum
+import os
 
 class UserService:
     key = b'pT8ZDjwCvnWkfPEYBm12q2p9srNkM-nWC6Ss9aAcMEw='

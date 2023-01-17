@@ -1,5 +1,6 @@
 from ..models import Job
 import requests
+import os
 
 class JobService:
     def get_all(self):
@@ -19,7 +20,8 @@ class JobService:
     def create(self) -> bool:
         jobs = Job.query.all()
         jobs_name = [job.name for job in jobs]
-        response = requests.get(f"{'http://localhost:8000/job_earnings'}")
+        stat_endpoint = os.environ.get('STATS_URL')
+        response = requests.get(f"{stat_endpoint}")
         if response.status_code == 200:
             for item in response.json():
                 if item[0] not in jobs_name:
