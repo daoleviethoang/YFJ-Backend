@@ -54,6 +54,104 @@ To see YFJ site, browse to:  `localhost:9000`
 ### APIs
 You can import the postman_collection file into postman so you can test all the APIs. 
 Attachments in folder yfj
+1. Get and create master data (job data):
+This API get all job from stats service and save it to yfi database
+- GET localhost:9000/
+2. Get most appropriate jobs in recommendation with username:
+- GET localhost:9000/<username>/advices
+3. Create user information:
+- Student: POST localhost:9000/advices
 
+Body: 
+```
+{
+    "username": "",
+    "role": "Student",
+    "math": 0,
+    "physics": 0,
+    "chemistry": 0,
+    "biology": 0,
+    "literature": 0,
+    "history": 0,
+    "geography": 0,
+    "phylosophy": 0,
+    "art": 0,
+    "foreign_language": 0
+}
+```
+- Volunteer: POST localhost:9000/jobs
+
+Body: jobs name get from API: GET localhost:9000/
+```
+{
+    "username": "",
+    "role": "Volunteer",
+    "math": 0,
+    "physics": 0,
+    "chemistry": 0,
+    "biology": 0,
+    "literature": 0,
+    "history": 0,
+    "geography": 0,
+    "phylosophy": 0,
+    "art": 0,
+    "foreign_language": 0,
+    "jobs": [
+        "Software engineer",
+        "Games developer",
+        "Lecturer, higher education"
+    ]
+}
+```
+4. update user information:
+
+- Student: PATCH localhost:9000/{username}/advices
+
+Body: 
+```
+{
+    "role": "Student",
+    "math": 0,
+    "physics": 0,
+    "chemistry": 0,
+    "biology": 0,
+    "literature": 0,
+    "history": 0,
+    "geography": 0,
+    "phylosophy": 0,
+    "art": 0,
+    "foreign_language": 0
+}
+```
+- Volunteer: PATCH localhost:9000/{username}/jobs
+
+Body: jobs name get from API: GET localhost:9000/
+```
+{
+    "username": "",
+    "role": "Volunteer",
+    "math": 0,
+    "physics": 0,
+    "chemistry": 0,
+    "biology": 0,
+    "literature": 0,
+    "history": 0,
+    "geography": 0,
+    "phylosophy": 0,
+    "art": 0,
+    "foreign_language": 0,
+    "jobs": [
+        "Software engineer",
+        "Games developer",
+        "Lecturer, higher education"
+    ]
+}
+```
+5. Delete user:
+- DELETE localhost:9000/{username}/user
+6. Get 
+jobs with username:
+- GET localhost:9000/{username}/user
+###Solution in computing the recommended jobs
 
 
