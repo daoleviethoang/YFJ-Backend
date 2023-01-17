@@ -40,12 +40,12 @@ The format of data to be input is like {jobs: [job1, job2, ...]}, e.g: a list of
 
 ### How to run
 Follow the steps below:
-    1. Run all services with docker: docker-compose up -d
-    2. cd yfj -> flask db migrate -> flask db upgrade 
-    3. [If YFJ fail with docker] Run FYJ service: export FLASK_APP=app && flask run --port 9000
-        - If error run: pip install requests or pip3 install requests before run export FLASK_APP=app && flask run --port 9000
-    4. Click to this link when run success: http://127.0.0.1:9000/
-       (This API helps to load all the master data needed in the project)
+1. Run all services with docker: docker-compose up -d
+2. cd yfj -> flask db migrate -> flask db upgrade 
+3. [If YFJ fail with docker] Run FYJ service: export FLASK_APP=app && flask run --port 9000
+- If error run: pip install requests or pip3 install requests before run export FLASK_APP=app && flask run --port 9000
+4. Click to this link when run success: http://127.0.0.1:9000/
+(This API helps to load all the master data needed in the project)
 
 To see output of Stats Service, browse to: `localhost:8000/job_earnings`
 
