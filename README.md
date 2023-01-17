@@ -156,6 +156,7 @@ jobs with username:
 ### Solution in computing the recommended jobs
 The algorithm is described as below.
 Details: Every time a new volunteer adds data, the data is added to the training data. When students import data, the system will take the data and calculate the student's similarity with the volunteer data set, then take the volunteer jobs with the highest similarity (and > 0) to suggest for them. student until 3 is enough, then stop.
+    
 <img width="557" alt="image" src="https://user-images.githubusercontent.com/47211985/212830998-85bb0cc8-bb1d-468c-8803-21cd113d1940.png">
 <img width="686" alt="image" src="https://user-images.githubusercontent.com/47211985/212830921-243a0b3f-ed21-4039-92a5-04de897d73b5.png">
 
